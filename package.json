@@ -1,5 +1,19 @@
 {
+  "name": "brick-breaker",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel serve src/index.html",
+    "watch": "parcel watch src/index.html"
+  },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "parcel": "^2.8.3",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.4"
   }
 }
