@@ -7,13 +7,13 @@
     "sourceMap": true,
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "./game",
+    "baseUrl": "./src",
     "paths": {
       "~/*": ["./*"]
     },
-    "typeRoots": ["game/images/"],
+    "typeRoots": ["src/assets"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["game/**/*"]
+  "include": ["src/**/*"]
 }
