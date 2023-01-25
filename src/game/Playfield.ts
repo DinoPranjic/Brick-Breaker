@@ -21,6 +21,10 @@ export class Playfield {
     this.context?.clearRect(0, 0, this.playfield.width, this.playfield.height);
   }
 
+  showPlayfield(): void {
+    this.playfield.classList.remove('hidden');
+  }
+
   StartButtonListener(startFunction: (playfield: Playfield) => void): void {
     this.start?.addEventListener('click', () => startFunction(this));
   }
