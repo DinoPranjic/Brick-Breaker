@@ -33,11 +33,19 @@ function setGameWin(playfield: Playfield) {
   gameOver = false;
 }
 
-function gameLoop(playfield: Playfield, bricks: Brick[]) {
+function gameLoop(playfield: Playfield, bricks: Brick[], player: Player) {
   playfield.clearPlayfield();
   playfield.drawBricks(bricks);
+  playfield.drawAsset(player);
 
-  requestAnimationFrame(() => gameLoop(playfield, bricks));
+  if(
+    (player.isMovingLeft && player.pos.x > 0) ||
+    (player.isMovingRight && player.pos.x < playfield.playfield.width - player.width)
+  ) {
+    player.movePlayer();
+  }
+
+  requestAnimationFrame(() => gameLoop(playfield, bricks, player));
 }
 
 function startGame(playfield: Playfield) {
@@ -48,7 +56,18 @@ function startGame(playfield: Playfield) {
 
   const bricks = createBricks();
 
-  gameLoop(playfield, bricks);
+  const player = new Player(
+    PADDLE_SPEED,
+    PADDLE_WIDTH,
+    PADDLE_HEIGHT,
+    {
+      x: PADDLE_START_X,
+      y: playfield.playfield.height - PADDLE_HEIGHT - 5
+    },
+    PADDLE_IMAGE
+  )
+
+  gameLoop(playfield, bricks, player);
 }
 
 const playfield = new Playfield('#playfield');
