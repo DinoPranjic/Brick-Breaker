@@ -10,7 +10,7 @@ const canvas: HTMLCanvasElement | null = document.querySelector('#playField');
 export const PLAY_FIELD_PADDING = 10;
 export const PLAY_FIELD_ROWS = 20;
 export const PLAY_FIELD_COLUMNS = 10;
-export const BRICK_PADDING = 5;
+export const BRICK_PADDING = 1;
 
 export const BRICK_WIDTH = canvas ? Math.floor((canvas.width - PLAY_FIELD_PADDING * 2) / PLAY_FIELD_COLUMNS) - BRICK_PADDING : 100;
 
