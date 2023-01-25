@@ -31,4 +31,28 @@ export class Playfield {
     }
   }
 
+  displayInfo(text: string): void {
+    if (this.info) {
+      this.info.innerHTML = text;
+    }
+  }
+
+  drawAsset(asset: Brick | Ball | Player): void {
+    if (!asset) {
+      return;
+    } 
+
+    this.context?.drawImage(
+      asset.image,
+      asset.pos.x,
+      asset.pos.y,
+      asset.width,
+      asset.height
+    )
+  }
+
+  drawBricks(bricks: Brick[]): void {
+    bricks.forEach(brick => this.drawAsset(brick))
+  }
+
 }
