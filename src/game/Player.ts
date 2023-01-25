@@ -19,10 +19,10 @@ export class Player {
     this.movingLeft = false;
     this.movingRight = false;
     this.playerImage.src = image;
-  }
 
-  document.addEventListener('keydown', this.handleKeyDown);
-  document.addEventListener('keyup', this.handleKeyUp);
+    document.addEventListener('keydown', this.handleKeyDown);
+    document.addEventListener('keyup', this.handleKeyUp);
+  }
 
   get width(): number {
     return this.playerWidth;
