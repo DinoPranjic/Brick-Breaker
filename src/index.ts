@@ -34,6 +34,7 @@ function setGameWin(playfield: Playfield) {
 }
 
 function gameLoop(playfield: Playfield, bricks: Brick[]) {
+  console.log('draw!');
   playfield.clearPlayfield();
   playfield.drawBricks(bricks);
 
