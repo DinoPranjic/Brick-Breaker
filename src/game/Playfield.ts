@@ -3,7 +3,7 @@ import { Brick } from "./Brick";
 import { Player } from "./Player";
 
 export class Playfield {
-  private playfield: HTMLCanvasElement;
+  playfield: HTMLCanvasElement;
   private context: CanvasRenderingContext2D | null;
   private scoreDisplay: HTMLObjectElement | null;
   private start: HTMLObjectElement | null;
