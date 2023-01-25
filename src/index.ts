@@ -18,6 +18,8 @@ import {
 
 } from './setup';
 
+import { createBricks } from './game/createBricks';
+
 let gameOver = false;
 let score = 0;
 
@@ -31,12 +33,21 @@ function setGameWin(playfield: Playfield) {
   gameOver = false;
 }
 
-function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: Ball) {
+function gameLoop(playfield: Playfield, bricks: Brick[]) {
+  playfield.clearPlayfield();
+  playfield.drawBricks(bricks);
 
+  requestAnimationFrame(() => gameLoop(playfield, bricks));
 }
 
 function startGame(playfield: Playfield) {
+  score = 0;
+  playfield.displayInfo('');
+  playfield.displayScore(0);
 
+  const bricks = createBricks();
+
+  gameLoop(playfield, bricks);
 }
 
 const playfield = new Playfield('#playfield');
