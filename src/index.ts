@@ -34,7 +34,6 @@ function setGameWin(playfield: Playfield) {
 }
 
 function gameLoop(playfield: Playfield, bricks: Brick[]) {
-  console.log('draw!');
   playfield.clearPlayfield();
   playfield.drawBricks(bricks);
 
@@ -45,6 +44,7 @@ function startGame(playfield: Playfield) {
   score = 0;
   playfield.displayInfo('');
   playfield.displayScore(0);
+  playfield.showPlayfield();
 
   const bricks = createBricks();
 
