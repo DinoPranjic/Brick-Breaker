@@ -6,9 +6,9 @@ export class Ball {
 
 
   constructor(
+    speed: number,
     private ballSize: number,
     private position: Position,
-    speed: number,
     image: string
   ) {
     this.ballSize = ballSize;
