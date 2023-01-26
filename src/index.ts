@@ -2,6 +2,7 @@ import { Playfield } from "./game/Playfield";
 import { Player } from "./game/Player";
 import { Ball } from "./game/Ball";
 import { Brick } from "./game/Brick";
+import { HitDetection } from "./game/HitDetection";
 
 import PADDLE_IMAGE from './assets/paddle.png';
 import BALL_IMAGE from './assets/ball.png';
@@ -33,7 +34,7 @@ function setGameWin(playfield: Playfield) {
   gameOver = false;
 }
 
-function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: Ball) {
+function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: Ball, hitDetection: HitDetection) {
   playfield.clearPlayfield();
   playfield.drawBricks(bricks);
   playfield.drawAsset(player);
@@ -48,7 +49,9 @@ function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: B
     player.movePlayer();
   }
 
-  requestAnimationFrame(() => gameLoop(playfield, bricks, player, ball));
+  hitDetection.checkBallHit(ball, player, playfield);
+
+  requestAnimationFrame(() => gameLoop(playfield, bricks, player, ball, hitDetection));
 }
 
 function startGame(playfield: Playfield) {
@@ -56,6 +59,10 @@ function startGame(playfield: Playfield) {
   playfield.displayInfo('');
   playfield.displayScore(0);
   playfield.showPlayfield();
+
+  const hitDetection = new HitDetection(
+
+  )
 
   const bricks = createBricks();
 
@@ -80,7 +87,7 @@ function startGame(playfield: Playfield) {
     PADDLE_IMAGE
   );
 
-  gameLoop(playfield, bricks, player, ball);
+  gameLoop(playfield, bricks, player, ball, hitDetection);
 }
 
 const playfield = new Playfield('#playfield');
