@@ -38,9 +38,9 @@ export const BRICK_HIT_POINTS: {[key:number]: number} = {
   1: 1,
   2: 1,
   3: 1,
-  4: 1,
-  5: 1,
-  6: 1
+  4: 2,
+  5: 2,
+  6: 2
 };
 
 export const LEVEL = [
