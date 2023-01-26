@@ -51,6 +51,13 @@ function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: B
 
   hitDetection.checkBallHit(ball, player, playfield);
 
+  const brickHit = hitDetection.checkBricks(ball, bricks);
+
+  if (brickHit) {
+    score += 10;
+    playfield.displayScore(score);
+  }
+
   requestAnimationFrame(() => gameLoop(playfield, bricks, player, ball, hitDetection));
 }
 
