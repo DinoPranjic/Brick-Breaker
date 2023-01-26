@@ -58,6 +58,18 @@ function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: B
     playfield.displayScore(score);
   }
 
+  if (ball.pos.y > playfield.playfield.height) {
+    gameOver = true;
+  }
+
+  if (bricks.length === 0) {
+    return setGameWin(playfield);
+  }
+
+  if (gameOver) {
+    return setGameOver(playfield);
+  }
+
   requestAnimationFrame(() => gameLoop(playfield, bricks, player, ball, hitDetection));
 }
 
