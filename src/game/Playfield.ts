@@ -41,7 +41,7 @@ export class Playfield {
     }
   }
 
-  drawAsset(asset: Brick | Player): void {
+  drawAsset(asset: Brick | Player | Ball): void {
     if (!asset) {
       return;
     } 
