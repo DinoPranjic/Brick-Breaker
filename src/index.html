@@ -10,10 +10,14 @@
   <body>
     <div id="main" class="main">
       <canvas id="playfield" class="hidden" width="1000" height="500"></canvas>
+      <audio src="./assets/hit-sound.wav"></audio>
       <div id="display">
         <div id="score"></div>
         <button id="start">Play!</button>
         <div id="info">Press play!</div>
+        <audio controls id="sounds" class="hidden">
+          <source src="./assets/hit-sound.wav" type="audio/wav">
+        </audio>
       </div>
     </div>
     <script src="./index.ts" type="module"></script>

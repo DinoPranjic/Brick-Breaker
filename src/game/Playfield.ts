@@ -51,7 +51,7 @@ export class Playfield {
       asset.pos.x,
       asset.pos.y,
       asset.width,
-      asset.height
+      asset.height,
     )
   }
 

@@ -1,9 +1,5 @@
 declare module '*.png' {
   const value: string;
-  export = value;
+  export default value;
 }
 
-declare module '*.wav' {
-  const value: string;
-  export = value;
-}

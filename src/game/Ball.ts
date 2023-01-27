@@ -9,7 +9,7 @@ export class Ball {
     speed: number,
     private ballSize: number,
     private position: Position,
-    image: string
+    image: string,
   ) {
     this.ballSize = ballSize;
     this.position = position;
@@ -17,7 +17,7 @@ export class Ball {
       x: speed,
       y: -speed
     }
-    this.ballImage.src = image;
+    this.ballImage.src = image
   }
 
   get width(): number {
@@ -48,4 +48,5 @@ export class Ball {
     this.pos.x += this.speed.x;
     this.pos.y += this.speed.y;
   }
+
 };

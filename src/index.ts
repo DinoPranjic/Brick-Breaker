@@ -6,6 +6,7 @@ import { HitDetection } from "./game/HitDetection";
 
 import PADDLE_IMAGE from './assets/paddle.png';
 import BALL_IMAGE from './assets/ball.png';
+// import BALL_HIT_SOUND from './assets/hit-sound.wav';
 
 import {
   PADDLE_SPEED,
@@ -23,6 +24,11 @@ import { createBricks } from './game/createBricks';
 
 let gameOver = false;
 let score = 0;
+
+const playSound = (src: string): void => {
+  const soundEffect = new Audio(src);
+  soundEffect.play();
+}
 
 function setGameOver(playfield: Playfield) {
   playfield.displayInfo('Game Over!');
@@ -54,6 +60,7 @@ function gameLoop(playfield: Playfield, bricks: Brick[], player: Player, ball: B
   const brickHit = hitDetection.checkBricks(ball, bricks);
 
   if (brickHit) {
+    playSound('./assets/hit-sound.wav');
     score += 10;
     playfield.displayScore(score);
   }
@@ -92,7 +99,7 @@ function startGame(playfield: Playfield) {
       x: BALL_START_X,
       y: BALL_START_Y
     },
-    BALL_IMAGE
+    BALL_IMAGE,
   );
 
   const player = new Player(
