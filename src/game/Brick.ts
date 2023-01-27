@@ -2,6 +2,7 @@ import { Position } from "~/types";
 
 export class Brick {
   private brickImage: HTMLImageElement = new Image();
+  brickSound: HTMLAudioElement;
 
   constructor(
     private brickWidth: number,
@@ -15,6 +16,7 @@ export class Brick {
     this.position = position;
     this.brickHitPoints = brickHitPoints;
     this.brickImage.src = image;
+    this.brickSound = document.querySelector('#brickSound') as HTMLAudioElement;
   }
 
   get width(): number {
@@ -41,6 +43,9 @@ export class Brick {
     this.brickHitPoints = points;
   }
 
+  playSound(): void {
+    this.brickSound.play();
+  }
   
 
 };

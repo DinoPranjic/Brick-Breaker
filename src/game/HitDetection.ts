@@ -11,6 +11,7 @@ export class HitDetection {
       ball.pos.x < player.pos.x + player.width &&
       ball.pos.y + ball.height === player.pos.y
     ) {
+      ball.playSound();
       ball.changeYDirection();
     }
     // chekcks for hit against walls
@@ -18,12 +19,14 @@ export class HitDetection {
       ball.pos.x > playfield.playfield.width - ball.width ||
       ball.pos.x < 0
     ) {
+      ball.playSound();
       ball.changeXDirection(); 
     }
     // checks for hit against ceiling
     if (
       ball.pos.y < 0
     ) {
+      ball.playSound();
       ball.changeYDirection();
     }
   }
@@ -48,8 +51,10 @@ export class HitDetection {
         ball.changeYDirection();
 
         if (brick.hp === 1) {
+          brick.playSound();
           bricks.splice(i, 1);
         } else {
+          ball.playSound();
           brick.hp -= 1;
         }
         hit = true;

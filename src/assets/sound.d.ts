@@ -1,4 +1,4 @@
-// declare module '*.wav' {
-//   const sound: string;
-//   export default sound;
-// }
+declare module '*.wav' {
+  const src: string;
+  export default src;
+}

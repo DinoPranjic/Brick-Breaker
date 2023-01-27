@@ -1,9 +1,10 @@
 import { Position } from "~/types";
+import BALL_HIT_SOUND from '../assets/hit-sound.wav';
 
 export class Ball {
   private speed: Position;
   private ballImage: HTMLImageElement = new Image();
-
+  ballSound: HTMLAudioElement;
 
   constructor(
     speed: number,
@@ -17,7 +18,8 @@ export class Ball {
       x: speed,
       y: -speed
     }
-    this.ballImage.src = image
+    this.ballImage.src = image,
+    this.ballSound = document.querySelector('#ballSound') as HTMLAudioElement;
   }
 
   get width(): number {
@@ -47,6 +49,10 @@ export class Ball {
   moveBall(): void {
     this.pos.x += this.speed.x;
     this.pos.y += this.speed.y;
+  }
+
+  playSound(): void {
+    this.ballSound.play();
   }
 
 };
